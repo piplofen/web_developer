@@ -7,10 +7,10 @@
 <ul>
   {% for i in item %}
   <li>
-    <h2>{{ i.name }}</h2>
-    <p>{{ i.author }}</p>
-    <p>{{ i.date_published }}</p>
     <hr>
+    <h2>{{ i.name }}</h2>
+    <p>Автор: {{ i.author }}</p>
+    <p>Год публикации: {{ i.date_published }}</p>
   </li>
   {% endfor %}
 </ul>

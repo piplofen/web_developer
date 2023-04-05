@@ -1,3 +1,13 @@
-html, body {
-    background-color: red;
+body {
+    background-color: #b79fbf;
+    font-family: serif;
+    font-variant: small-caps;
+}
+
+.menu{
+    background-color: #a7bf9f;
+}
+
+.bttnOpen{
+    float: right;
 }
