@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,17 +7,39 @@
     <link rel="stylesheet" href="{% static 'book/css/style.css' %}" type="text/css" />
 </head>
 <body>
-{% block content %}
-{% endblock content %}
+<div class="header">
+    <a href="" class="text">Главная</a>
+<!--    <a href="" class="text">Категории</a>-->
+    <input class="input">
+    <button class="search">Поиск</button>
+    <div class="container">
+        <button class="login">Войти</button>
+        <button class="reg">Регистрация</button>
+    </div>
+</div>
 
-{% block mainmenu %}
-<ul class="menu">
-    {% for m in menu %}
-    <li>
-        {{ m }}
-    </li>
-    {% endfor %}
-</ul>
-{% endblock mainmenu %}
+<table border=0 cellpadding="0" cellspacing="0">
+<tr>
+    <td valign="top" class="left-side">
+        {% if category_selected == 0 %}
+            <p class="selected">Все категории</p>
+        {% else %}
+            <p><a href="{% url 'home' %}">Все категории</a></p>
+        {% endif %}
+
+        {% for c in category %}
+            {% if c.pk == category_selected %}
+                <p class="selected">{{ c.name }}</p>
+            {% else %}
+                <p><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></p>
+            {% endif %}
+        {% endfor %}
+    </td>
+    <td valign="top" class="right-side">
+        {% block content %}
+        {% endblock content %}
+    </td>
+</tr>
+</table>
 </body>
 </html>

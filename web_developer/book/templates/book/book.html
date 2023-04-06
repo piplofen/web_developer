@@ -1,17 +1,21 @@
 {% extends 'book/main.html' %}
 
 {% block content %}
-<h1>
-  {{ title }}
-</h1>
-<ul>
-  {% for i in item %}
-  <li>
-    <hr>
-    <h2>{{ i.name }}</h2>
-    <p>Автор: {{ i.author }}</p>
-    <p>Год публикации: {{ i.date_published }}</p>
-  </li>
-  {% endfor %}
-</ul>
-{% endblock %}
+{% for i in item %}
+<hr>
+  <div  class="main">
+      <div class="item">
+          <h1>"{{ i.name }}"</h1>
+          <h2>Автор: {{ i.author }}</h2>
+          <h3>Год публикации: {{ i.date_published }}</h3>
+          <h3>Жанр: {{ i.category }}</h3>
+          <div class="open">
+              <p>Описание: {{ i.description }}</p>
+              <button class="open">Читать далее...</button>
+          </div>
+      </div>
+  </div>
+<div  class="main">
+    {% endfor %}
+    {% endblock %}
+ </div>
