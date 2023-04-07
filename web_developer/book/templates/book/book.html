@@ -14,7 +14,7 @@
           <h3>Жанр: {{ i.category }}</h3>
           <div class="open">
               <p>Описание: {{ i.description }}</p>
-              <button class="open">Читать далее...</button>
+              <p class="open"><a href="{% url 'book' i.pk %}">Читать далее...</a></p>
           </div>
       </div>
   </div>

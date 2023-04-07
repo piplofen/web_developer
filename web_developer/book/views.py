@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 
 from .models import *
@@ -21,8 +21,26 @@ def main(request):
     return render(request, 'book/book.html', context=context)
 
 
-def book(request):
-    return render(request, 'book/main.html', {'menu': menu, 'title': "Книга"})
+def show_book(request, book_id):
+    item = get_object_or_404(Book, pk=book_id)
+    category = Category.objects.all()
+    context = {
+        "item": item,
+        "menu": menu,
+        "category": category,
+        "title": f"Книга {item.name}",
+        "category_selected": item.category_id,
+    }
+
+    return render(request, 'book/current_book.html', context=context)
+
+
+def login(request):
+    return HttpResponse("Авторизация")
+
+
+def reg(request):
+    return HttpResponse("Регистрация")
 
 
 def show_category(request, category_id):

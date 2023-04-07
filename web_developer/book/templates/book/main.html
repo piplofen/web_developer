@@ -8,13 +8,12 @@
 </head>
 <body>
 <div class="header">
-    <a href="" class="text">Главная</a>
 <!--    <a href="" class="text">Категории</a>-->
     <input class="input">
     <button class="search">Поиск</button>
     <div class="container">
-        <button class="login">Войти</button>
-        <button class="reg">Регистрация</button>
+        <p class="login"><a href="{% url 'login' %}">Войти</a></p>
+        <p class="reg"><a href="{% url 'reg' %}">Регистрация</a></p>
     </div>
 </div>
 
