@@ -26,6 +26,7 @@ class Book(models.Model):
 
 class Comments(models.Model):
     user = models.IntegerField(db_index=True)
+    current_book = models.ForeignKey("Book", on_delete=models.PROTECT, null=True)
     body = models.TextField(default="Комментарий")
     date_published = models.CharField(max_length=10)
 
@@ -33,7 +34,7 @@ class Comments(models.Model):
         return self.body
 
     def get_absolute_url(self):
-        return reverse("category", kwargs={"category_id": self.pk})
+        return reverse("comments", kwargs={"comments_id": self.pk})
 
     class Meta:
         verbose_name = "Комментарий"

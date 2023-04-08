@@ -7,7 +7,32 @@
 
     <h1><img class="image" src="{{ item.photo.url }}" width="100" height="200"
                          align="left" vspace="5" hspace="5">{{ i.name }}</h1>
+
 {% endif %}
 
 {{ item.description }}
+
+<p align="right"><a href="{% url 'add' item.pk %}">Оставить комментарий</a></p>
+{% endblock %}
+
+{% block comments %}
+
+{% for c in comments %}
+    <table border=0 cellpadding="0" cellspacing="0">
+        <tr>
+            <td valign="top" width="100%" class="left-side">
+                <p>Пользователь: {{ c.user }}</p>
+                <p>Дата публикации: {{ c.date_published }}</p>
+                <p>Текст комментария: {{ c.body }}</p>
+            </td>
+            <hr>
+            <td valign="top" align="right" class="left-side">
+                <p><a href="">Редактировать</a></p>
+                <p><a href="">Удалить</a></p>
+            </td>
+        </tr>
+    </table>
+{% endfor %}
+<hr>
+
 {% endblock %}
