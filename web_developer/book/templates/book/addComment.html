@@ -1,0 +1,15 @@
+{% extends 'book/main.html' %}
+
+{% block content %}
+
+<h1>{{ title }}</h1>
+
+<!--<p>{{ item.pk }}</p>-->
+
+<form action="{% url 'add' item.pk %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Добавить</button>
+</form>
+
+{% endblock %}

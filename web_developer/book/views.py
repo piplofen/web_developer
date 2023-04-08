@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 
+from .forms import *
 from .models import *
 
 menu = ["Главная", "Поиск", "Войти", "Регистрация"]
@@ -24,15 +25,45 @@ def main(request):
 def show_book(request, book_id):
     item = get_object_or_404(Book, pk=book_id)
     category = Category.objects.all()
+    comments = Comments.objects.filter(current_book_id=book_id)
     context = {
         "item": item,
         "menu": menu,
+        "comments": comments,
         "category": category,
-        "title": f"Книга {item.name}",
+        "title": item.name,
         "category_selected": item.category_id,
     }
 
     return render(request, 'book/current_book.html', context=context)
+
+
+def addComment(request, book_id):
+    item = Book.objects.get(pk=book_id)
+    category = Category.objects.all()
+
+    if request.method == "POST":
+        form = AddComment(request.POST)
+        if form.is_valid():
+            try:
+                print(form.cleaned_data)
+                # Book.objects.create(**form.cleaned_data)
+                # return redirect("home")
+            except:
+                form.add_error(None, "Ошибка добавления комментария")
+    else:
+        form = AddComment()
+
+    context = {
+        "item": item,
+        "menu": menu,
+        "category": category,
+        "title": "Добавление комментария",
+        "category_selected": 0,
+        "form": form
+    }
+
+    return render(request, 'book/addComment.html', context=context)
 
 
 def login(request):
