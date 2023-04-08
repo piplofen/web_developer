@@ -1,15 +1,25 @@
 from django import forms
 from .models import *
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, User, AuthenticationForm
+from django.views.generic import CreateView
 
 
-class AddComment(forms.Form):
-    b = Book.objects.all()
-    body = forms.CharField(widget=forms.Textarea(attrs={"cols": 60, "rows": 10}), label="Текст комментария")
-    # current_book = forms.CharField(widget=forms.MultipleHiddenInput, )
-    # current_book = forms.ModelChoiceField(queryset=b.pk)
+class AddComment(CreateView):
+    class Meta:
+        model = Comments
+        fields = ["body"]
 
 
-# class RegUser(UserCreationForm):
-#     class Meta:
-#         pass
+class RegUserForm(UserCreationForm):
+    username = forms.CharField(label="Имя пользователя", widget=forms.TextInput(attrs={"class": "form-input"}))
+    password1 = forms.CharField(label="Пароль", widget=forms.PasswordInput(attrs={"class": "form-input"}))
+    password2 = forms.CharField(label="Повтор пароля", widget=forms.PasswordInput(attrs={"class": "form-input"}))
+
+    class Meta:
+        model = User
+        fields = ("username", "password1", "password2")
+
+
+class LogUserForm(AuthenticationForm):
+    username = forms.CharField(label="Имя пользователя", widget=forms.TextInput(attrs={"class": "form-input"}))
+    password = forms.CharField(label="Пароль", widget=forms.PasswordInput(attrs={"class": "form-input"}))

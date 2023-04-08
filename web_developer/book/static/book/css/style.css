@@ -1,12 +1,12 @@
-.login, .reg {
-   	margin-left: 15px;
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-   }
+    .login, .reg {
+        margin-left: 15px;
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+       }
 
    button {
-   	color: #fff;
+   	color: #red;
    	background-color: #007bff;
     border-color: #007bff;
     display: inline-block;
@@ -19,7 +19,7 @@
     -ms-user-select: none;
     user-select: none;
     border: 1px solid transparent;
-    padding: 0.375rem 0.75rem;
+    padding: 0.1375rem 0.75rem;
     font-size: 1rem;
     line-height: 1.5;
     border-radius: 0.25rem;

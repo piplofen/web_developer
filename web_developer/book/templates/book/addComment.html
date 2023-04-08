@@ -5,8 +5,9 @@
 <h1>{{ title }}</h1>
 
 <!--<p>{{ item.pk }}</p>-->
+<!--item.pk-->
 
-<form action="{% url 'add' item.pk %}" method="post">
+<form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Добавить</button>

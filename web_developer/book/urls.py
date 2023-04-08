@@ -8,9 +8,9 @@ urlpatterns = [
     path('', BookHome.as_view(), name='home'),
     path('book/<int:book_id>/', BookShow.as_view(), name='book'),
     path('category/<int:category_id>/', BookCategory.as_view(), name='category'),
-    path('login/', login, name="login"),
-    path('reg/', RegUser, name="reg"),
-    path('add_comment/<int:book_id>/', addComment, name='add')
+    path('login/', LogUser.as_view(), name="login"),
+    path('reg/', RegUser.as_view(), name="reg"),
+    path('add_comment/<int:book_id>/', AddComment.as_view(), name='add')
 ]
 
 if settings.DEBUG:

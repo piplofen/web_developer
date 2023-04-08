@@ -1,8 +1,8 @@
 {% extends 'book/main.html' %}
 
 {% block content %}
-<style>
 
+<style>
         .form-input {
           border-radius: 0.5rem;
           border: 1px solid black;
@@ -14,13 +14,13 @@
           float: right;
         }
 
-        .label-reg {
+        .label-log {
           font-family: math;
           margin-right: 3rem;
           font-size: 1rem;
         }
 
-        .bttnReg {
+        .bttnLog {
           background-color: #007bff;
           border-color: #007bff;
           display: inline-block;
@@ -32,18 +32,26 @@
           width:100%
         }
 
-        .bttnReg:hover {
+        .bttnLog:hover {
           color: #fff;
           background-color: #0069d9;
           border-color: #0062cc;
         }
 
-        .bttnReg:focus {
+        .bttnLog:focus {
           color: #fff;
           background-color: #007bff;
           border-color: #007bff;
         }
-        .formReg {
+
+        .formLog {
+        position: absolute;
+        left: 50%;
+        top: 35%;
+        transform: translate(-50%, -50%);
+        }
+
+        .formLog {
           background-color: #95aebb;
           padding: 0 1rem 1rem 1rem;
           position: absolute;
@@ -55,14 +63,15 @@
         }
 
 </style>
-<form class="formReg" method="post">
+
+<form class="formLog" method="post">
   {% csrf_token %}
-  <h1 align="center" class="lblReg">Регистрация</h1>
-  {% for f in form %}
-  <p><label class="label-reg" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
-  <div class="form-error">{{ f.errors }}</div>
-  {% endfor %}
-  <button class="bttnReg" type="submit">Зарегистрироваться</button>
+  <h1 align="center">Авторизация</h1>
+    {% for f in form %}
+    <p><label class="label-log" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+    <div class="form-error">{{ f.errors }}</div>
+    {% endfor %}
+    <button class="bttnLog" type="submit">Войти</button>
 </form>
 
 {% endblock %}
