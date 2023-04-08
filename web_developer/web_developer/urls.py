@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 #
-from book.views import main
+from book.views import *
 from web_developer import settings
 
 urlpatterns = [

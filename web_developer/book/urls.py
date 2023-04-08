@@ -5,11 +5,11 @@ from web_developer import settings
 from .views import *
 
 urlpatterns = [
-    path('', main, name='home'),
-    path('book/<int:book_id>/', show_book, name='book'),
-    path('category/<int:category_id>/', show_category, name='category'),
+    path('', BookHome.as_view(), name='home'),
+    path('book/<int:book_id>/', BookShow.as_view(), name='book'),
+    path('category/<int:category_id>/', BookCategory.as_view(), name='category'),
     path('login/', login, name="login"),
-    path('reg/', reg, name="reg"),
+    path('reg/', RegUser, name="reg"),
     path('add_comment/<int:book_id>/', addComment, name='add')
 ]
 

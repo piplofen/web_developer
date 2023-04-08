@@ -1,5 +1,6 @@
 from django import forms
 from .models import *
+from django.contrib.auth.forms import UserCreationForm
 
 
 class AddComment(forms.Form):
@@ -9,3 +10,6 @@ class AddComment(forms.Form):
     # current_book = forms.ModelChoiceField(queryset=b.pk)
 
 
+# class RegUser(UserCreationForm):
+#     class Meta:
+#         pass
