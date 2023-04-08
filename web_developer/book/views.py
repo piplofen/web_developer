@@ -34,49 +34,6 @@ class BookShow(DataMixin, DetailView):
         return dict(list(context.items()) + list(more_context.items()))
 
 
-class AddComment(DataMixin, CreateView):
-    form_class = AddComment
-    template_name = 'book/addComment.html'
-    pk_url_kwarg = 'book_id'
-    context_object_name = 'item'
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        more_context = self.get_user_content(title="Добавление комментария")
-        return dict(list(context.items()) + list(more_context.items()))
-
-
-# def addComment(request, book_id):
-#     item = Book.objects.get(pk=book_id)
-#     category = Category.objects.all()
-#
-#     if request.method == "POST":
-#         form = AddComment(request.POST)
-#         if form.is_valid():
-#             try:
-#                 comment = Comments()
-#                 comment.current_book_id = item.pk
-#                 comment.user_id= 2
-#                 comment.body = request.POST.get("body")
-#                 comment.save()
-#                 return redirect("home")
-#             except:
-#                 form.add_error(None, "Ошибка добавления комментария")
-#     else:
-#         form = AddComment()
-#
-#     context = {
-#         "item": item,
-#         "menu": menu,
-#         "category": category,
-#         "title": "Добавление комментария",
-#         "category_selected": 0,
-#         "form": form
-#     }
-#
-#     return render(request, 'book/addComment.html', context=context)
-
-
 class BookCategory(DataMixin, ListView):
     model = Book
     template_name = 'book/book.html'
@@ -114,6 +71,10 @@ class LogUser(DataMixin, LoginView):
 
     def get_success_url(self):
         return reverse_lazy('home')
+
+
+def addComment(request, book_id):
+    return HttpResponse("Заглушка")
 
 
 def pageNotFound(request, exception):

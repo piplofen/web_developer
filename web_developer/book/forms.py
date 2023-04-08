@@ -4,12 +4,6 @@ from django.contrib.auth.forms import UserCreationForm, User, AuthenticationForm
 from django.views.generic import CreateView
 
 
-class AddComment(CreateView):
-    class Meta:
-        model = Comments
-        fields = ["body"]
-
-
 class RegUserForm(UserCreationForm):
     username = forms.CharField(label="Имя пользователя", widget=forms.TextInput(attrs={"class": "form-input"}))
     password1 = forms.CharField(label="Пароль", widget=forms.PasswordInput(attrs={"class": "form-input"}))
