@@ -1,6 +1,5 @@
 # [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Python+web+developer+test)](https://git.io/typing-svg)
 
-# Инструкция
 ## Используемый стек:
 - `python 3.11`
 - `django 4.2`
