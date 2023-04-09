@@ -30,7 +30,7 @@ class Book(models.Model):
 class Comments(models.Model):
     user = models.ForeignKey(get_user_model(), on_delete=models.PROTECT, null=True)
     current_book = models.ForeignKey("Book", on_delete=models.PROTECT, null=True)
-    body = models.TextField(default="Комментарий")
+    body = models.TextField(verbose_name="Комментарий")
     date_published = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

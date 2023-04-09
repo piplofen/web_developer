@@ -8,12 +8,19 @@
 </head>
 <body>
 <div class="header">
-<!--    <a href="" class="text">Категории</a>-->
-    <input class="input">
-    <button class="search">Поиск</button>
+    <a href="/" class="text">Главная</a>
+    <form action="{% url 'search' %}" type="text" method="get">
+        <input class="input" type="search" type="text" name="q" placeholder="Поиск">
+            <button type="submit">Поиск</button>
+    </form>
+<!--    <a href="{% url 'search' %}" class="search" methods="get">Поиск</a>-->
     <div class="container">
-        <p class="login"><a href="{% url 'login' %}">Войти</a></p>
-        <p class="reg"><a href="{% url 'reg' %}">Регистрация</a></p>
+        {% if request.user.is_authenticated %}
+            <p class="logout">{{ user.username }} | <a href="{% url 'logout' %}">Выйти</a></p>
+        {% else %}
+            <p class="login"><a href="{% url 'login' %}">Войти</a></p>
+            <p class="reg"><a href="{% url 'reg' %}">Регистрация</a></p>
+        {% endif %}
     </div>
 </div>
 
@@ -35,6 +42,7 @@
         {% endfor %}
     </td>
     <td valign="top" class="right-side">
+
         {% block content %}
         {% endblock content %}
     </td>

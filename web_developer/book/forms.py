@@ -17,3 +17,21 @@ class RegUserForm(UserCreationForm):
 class LogUserForm(AuthenticationForm):
     username = forms.CharField(label="Имя пользователя", widget=forms.TextInput(attrs={"class": "form-input"}))
     password = forms.CharField(label="Пароль", widget=forms.PasswordInput(attrs={"class": "form-input"}))
+
+
+class AddComment(forms.ModelForm):
+    class Meta:
+        model = Comments
+        fields = ("body",)
+        widgets = {
+            "body": forms.Textarea(attrs={"class": "form-input"})
+        }
+
+
+class UpdateComment(forms.ModelForm):
+    class Meta:
+        model = Comments
+        fields = ("body",)
+        widgets = {
+            "body": forms.Textarea(attrs={"class": "form-input"})
+        }

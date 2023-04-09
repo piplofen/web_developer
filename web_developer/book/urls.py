@@ -10,7 +10,11 @@ urlpatterns = [
     path('category/<int:category_id>/', BookCategory.as_view(), name='category'),
     path('login/', LogUser.as_view(), name="login"),
     path('reg/', RegUser.as_view(), name="reg"),
-    path('add_comment/<int:book_id>/', addComment, name='add')
+    path('add_comment/<int:book_id>/', addComment, name='add'),
+    path('delete_comment/<int:book_id>/<int:com_id>', deleteComment, name='delete'),
+    path('update_comment/<int:book_id>/<int:com_id>', updateComment, name='update'),
+    path('logout', logOut, name='logout'),
+    path('search/', SearchBook.as_view(), name='search')
 ]
 
 if settings.DEBUG:
