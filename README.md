@@ -7,8 +7,8 @@
 - `postgreSQL 15.2`
 
 ## В проекте присутствует `venv`. Библиотеки для работы `venv`:
-- `django`
-- `psycopg2`
+- `django 4.2`
+- `psycopg2 2.9.6`
 - `pillow`
 
 ## База данных:
