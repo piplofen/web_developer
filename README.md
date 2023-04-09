@@ -10,7 +10,9 @@
 - `psycopg2`
 - `pillow`
 
-Первые действия после клонирования репозитория:
+База данных:
+- создаем базу данных с именем `webdeveloper`, используя команду `CREATE DATABASE webdeveloper;`
+- создаем пользователя с именем `webdeveloperuser` и паролем `1234`, используя команду `CREATE USER webdeveloperuser WITH PASSWORD '1234';`
 
 
 
