@@ -10,7 +10,7 @@
 - `psycopg2`
 - `pillow`
 
-База данных:
+## База данных:
 - в терминале вводим `sudo -u postgres psql`
 - создаем базу данных с именем `webdeveloper`, используя команду `CREATE DATABASE webdeveloper;`
 - создаем пользователя с именем `webdeveloperuser` и паролем `1234`, используя команду `CREATE USER webdeveloperuser WITH PASSWORD '1234';`
@@ -29,7 +29,7 @@
 - ниже расположен скриншот подключения к базе данных
 ![img.png](img.png)
 
-# Функционал:
+## Функционал:
 - 
 
 
