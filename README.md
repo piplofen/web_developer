@@ -4,6 +4,7 @@
 - `python 3.11`
 - `django 4.2`
 - `psycopg2 2.9.6`
+- `postgreSQL 15.2`
 
 ## В проекте присутствует `venv`. Библиотеки для работы `venv`:
 - `django`
