@@ -59,7 +59,10 @@ class SearchBook(DataMixin, LoginView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['q'] = self.request.GET.get('q')
-        context['item'] = Book.objects.filter(name__icontains=self.request.GET.get('q'))
+        if Book.objects.filter(name__icontains=self.request.GET.get('q')):
+            context['item'] = Book.objects.filter(name__icontains=self.request.GET.get('q'))
+        elif Book.objects.filter(author__icontains=self.request.GET.get('q')):
+            context['item'] = Book.objects.filter(author__icontains=self.request.GET.get('q'))
         more_context = self.get_user_content(title="Главная страница")
         return dict(list(context.items()) + list(more_context.items()))
 
