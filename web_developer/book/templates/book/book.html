@@ -13,6 +13,7 @@
           <h2>Автор: {{ i.author }}</h2>
           <h3>Год публикации: {{ i.date_published }}</h3>
           <h3>Жанр: {{ i.category }}</h3>
+          <h3>Дата публикации на сайте: {{ i.time_create }}</h3>
           <div class="open">
               <p>Описание: {{ i.description|truncatewords:50 }}</p>
               <p class="open"><a href="{% url 'book' i.pk %}">Читать далее...</a></p>
