@@ -1,4 +1,4 @@
-# [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Python+&+Djanjo+web+developer)](https://git.io/typing-svg)
+# [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Python+and+Djanjo+web+developer)](https://git.io/typing-svg)
 
 # Инструкция
 ## Используемый стек:
