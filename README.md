@@ -11,9 +11,9 @@
 - `pillow`
 
 База данных:
-- создаем базу данных с именем `webdeveloper`, используя команду `CREATE DATABASE webdeveloper;`
-- создаем пользователя с именем `webdeveloperuser` и паролем `1234`, используя команду `CREATE USER webdeveloperuser WITH PASSWORD '1234';`
-- После этого нужно изменить несколько параметров подключения только что созданного пользователя. Это ускорит операции с базой данных (необходимые значения не придется запрашивать и устанавливать при каждом соединении).
+1. создаем базу данных с именем `webdeveloper`, используя команду `CREATE DATABASE webdeveloper;`
+2. создаем пользователя с именем `webdeveloperuser` и паролем `1234`, используя команду `CREATE USER webdeveloperuser WITH PASSWORD '1234';`
+3. После этого нужно изменить несколько параметров подключения только что созданного пользователя. Это ускорит операции с базой данных (необходимые значения не придется запрашивать и устанавливать при каждом соединении).
   - `ALTER ROLE webdeveloper SET client_encoding TO 'utf8';`
   - `ALTER ROLE webdeveloper SET default_transaction_isolation TO 'read committed';`
   - `ALTER ROLE webdeveloper SET timezone TO 'UTC';`
